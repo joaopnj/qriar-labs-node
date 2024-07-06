@@ -1,3 +1,7 @@
+# Qriar Labs Node
+
+This is a test code for Qriar Labs, using NodeJs monorepository.
+
 # Turborepo (NestJS + Prisma + NextJS + Tailwind + Typescript + Jest) Starter
 
 This is fullstack turborepo starter. It comes with the following features. 
@@ -43,12 +47,17 @@ This turborepo has some additional tools already setup for you:
 This starter kit is using turborepo and yarn workspaces for monorepo workflow.
 
 ### Prerequisites 
-- Install nps by running 
-```
-npm i -g nps
-```
+
 - Make sure docker and docker-compose are
  installed. Refer to docs for your operating system.
+
+
+ ## Docker 
+
+ - Run docker compose
+```bash
+docker compose up
+```
 
 ### Configure Environment
 - Frontend 
@@ -59,26 +68,31 @@ npm i -g nps
 ### Install Dependencies
 Make sure you are at root of the project and just run 
 
-```
-nps prepare
-```
-### Build
-
-To build all apps and packages, run the following command at the root of project:
-
-```
-nps build
+```bash
+yarn
 ```
 
-### Develop
 
-To develop all apps and packages, run the following command at the root of project:
+### Back End
 
+To run the Front end navigate into the folder 'apps/api' and run
+
+```bash
+yarn dev
 ```
-nps dev
+The api should be running at `http://localhost:5002`
+
+NOTE: You can import the file:
+```
+Qr-Labs-Node.postman_collection.json
+```
+On your postman with the samples requisitions
+
+### Front End
+
+To run the Front end navigate into the folder 'apps/web' and run
+
+```bash
+yarn dev
 ```
 The app should be running at `http://localhost` with reverse proxy configured.
-
-
-## Other available commands
-Run `nps` in the terminal to see list of all available commands. 
