@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { validationSchemaForEnv } from './config/environment-variables';
-import { PersistenceModule } from './persistence/persistence.module';
-import { AppController } from './controller/app.controller';
-import { AppUsecase } from './usecase/app.usecase';
-import { OrderController } from './controller/order.controller';
-import { OrderRepository } from './repository/order.repository';
-import { OrderUseCase } from './usecase/order.usecase';
-import { HistoryRepository } from './repository/history.repository';
+import { validationSchemaForEnv } from './database/config/environment-variables';
+import { PersistenceModule } from './database/persistence/persistence.module';
+import { AppController } from './infra/controller/app.controller';
+import { AppUsecase } from './application/usecase/app.usecase';
+import { OrderController } from './infra/controller/order.controller';
+import { OrderUseCase } from './application/usecase/order.usecase';
+import { OrderRepository } from './infra/repository/order.repository';
+import { HistoryRepository } from './infra/repository/history.repository';
 
 @Module({
   imports: [
