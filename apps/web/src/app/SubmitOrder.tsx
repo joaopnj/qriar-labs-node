@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import mainInstance from "@/lib/instance";
+import { PlusCircle } from "lucide-react";
 import { useState } from "react";
 
 export function SubmitOrder() {
@@ -27,7 +28,10 @@ export function SubmitOrder() {
     return (
         <Dialog open={open}>
             <DialogTrigger asChild>
-                <Button variant="outline" onClick={() => setOpen(true)}>Criar ordem</Button>
+            <Button variant="outline" onClick={() => setOpen(true)} size="sm" className="h-7 gap-1">
+                <PlusCircle className="h-3.5 w-3.5" />
+                    Submit Order
+                </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>

@@ -63,28 +63,20 @@ import {
 import { useEffect, useState } from "react"
 import mainInstance from "@/lib/instance"
 import SubmitOrder from "./SubmitOrder"
+import EditOrder from "./EditOrder"
 
 export function Dashboard() {
 
-  const [list, setList] = useState([]); 
+  const [list, setList] = useState([]);
 
   const fetchOrders = async () => {
     const result = await mainInstance.get('/order');
+    console.log(result);
     setList(result.data);
   };
 
-  const createOrder = async (values: any) => {
-    const result = await mainInstance.post('/order', values);
-    setList(result.data);
-  };
-
-  const updateOrder = async () => {
-    const result = await mainInstance.get('/order');
-    setList(result.data);
-  };
-
-  useEffect(()=> {
-      fetchOrders();
+  useEffect(() => {
+    fetchOrders();
   }, []);
 
   return (
@@ -265,7 +257,7 @@ export function Dashboard() {
                 </TabsTrigger>
               </TabsList>
               <div className="ml-auto flex items-center gap-2">
-                <DropdownMenu>
+                {/* <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="outline" size="sm" className="h-7 gap-1">
                       <ListFilter className="h-3.5 w-3.5" />
@@ -285,20 +277,14 @@ export function Dashboard() {
                       Archived
                     </DropdownMenuCheckboxItem>
                   </DropdownMenuContent>
-                </DropdownMenu>
-                <Button size="sm" variant="outline" className="h-7 gap-1">
+                </DropdownMenu> */}
+                {/* <Button size="sm" variant="outline" className="h-7 gap-1">
                   <File className="h-3.5 w-3.5" />
                   <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
                     Export
                   </span>
-                </Button>
-                <Button size="sm" className="h-7 gap-1">
-                  <PlusCircle className="h-3.5 w-3.5" />
-                  <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                    Add Product
-                  </span>
-                </Button>
-                <SubmitOrder/>
+                </Button> */}
+                <SubmitOrder />
               </div>
             </div>
             <TabsContent value="all">
@@ -315,12 +301,14 @@ export function Dashboard() {
                       <TableRow>
                         <TableHead>Id</TableHead>
                         <TableHead>Title</TableHead>
-                        <TableHead>Price</TableHead>
                         <TableHead className="hidden md:table-cell">
-                          Total Sales
+                          Locator
                         </TableHead>
                         <TableHead className="hidden md:table-cell">
-                          Created at
+                          Status
+                        </TableHead>
+                        <TableHead className="hidden md:table-cell">
+                          Actions
                         </TableHead>
                         <TableHead>
                           <span className="sr-only">Actions</span>
@@ -329,23 +317,34 @@ export function Dashboard() {
                     </TableHeader>
                     <TableBody>
                       <TableRow>
-                        
+
                       </TableRow>
-                      {list.map((order: any)=><TableRow>
+                      {list.map((order: any) => <TableRow>
                         <TableCell className="font-medium">
-                          {order.id}
+                          <Badge variant="outline">
+                            {order.id}
+                          </Badge>
                         </TableCell>
                         <TableCell>
-                          <Badge variant="outline">{order.title}</Badge>
-                        </TableCell>
-                        <TableCell></TableCell>
-                        <TableCell className="hidden md:table-cell">
-                          30
-                        </TableCell>
-                        <TableCell className="hidden md:table-cell">
-                          2024-02-14 02:14 PM
+                          <Badge variant="outline">
+                            {order.title}
+                          </Badge>
                         </TableCell>
                         <TableCell>
+                          <Badge variant="outline">
+                            {order.locator}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline">
+                            {order?.history[order?.history?.length - 1]?.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
+                          <EditOrder id={order.id} />
+                        </TableCell>
+
+                        {/* <TableCell>
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                               <Button
@@ -363,7 +362,7 @@ export function Dashboard() {
                               <DropdownMenuItem>Delete</DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
-                        </TableCell>
+                        </TableCell> */}
                       </TableRow>)}
                     </TableBody>
                   </Table>

@@ -11,6 +11,6 @@ export class OrderRepository {
   };
 
   async list(filter?: Prisma.OrderFindManyArgs): Promise<any> {
-    return await this.prismaService.order.findMany(filter);
+    return await this.prismaService.order.findMany({...filter, include:{history:true}});
   };
 }
