@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "dev": "nest build --webpack --webpackPath webpack-hmr.config.js --watch",
-    "postinstall": "npx prisma generate",
+    "db:generate": "npx prisma generate",
     "db:push": "prisma db push",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

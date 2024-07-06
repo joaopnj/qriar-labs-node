@@ -68,10 +68,19 @@ Make sure you are at root of the project and just run
 yarn
 ```
 
-
 ### Back End
 
 To run the Front end navigate into the folder 'apps/api' and run
+
+Install the database
+```bash
+yarn db:generate
+```
+
+Push the database
+```bash
+yarn db:push
+```
 
 ```bash
 yarn dev
