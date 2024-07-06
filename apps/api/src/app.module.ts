@@ -9,6 +9,7 @@ import { OrderRepository } from './infra/repository/order.repository';
 import { HistoryRepository } from './infra/repository/history.repository';
 import { CreateOrderUseCase } from './application/usecase/create.order.usecase';
 import { UpdateOrderStatusUseCase } from './application/usecase/update.order.usecase';
+import { FindOrdersUseCase } from './application/usecase/find.orders.usecase';
 import { SubmitPaymentListener } from './application/listeners/submit.payment.listener';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 
@@ -30,6 +31,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
     OrderRepository,
     CreateOrderUseCase,
     UpdateOrderStatusUseCase,
+    FindOrdersUseCase,
     HistoryRepository,
     SubmitPaymentListener
   ],

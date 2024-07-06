@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -59,8 +60,20 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { useEffect } from "react"
+import mainInstance from "@/lib/instance"
 
 export function Dashboard() {
+
+  const fetchOrders = async () => {
+    const result = await mainInstance.get('/order');
+    console.log(result);
+  };
+
+  useEffect(()=> {
+      fetchOrders();
+  }, []);
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">

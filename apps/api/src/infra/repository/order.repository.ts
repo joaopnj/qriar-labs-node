@@ -10,7 +10,7 @@ export class OrderRepository {
     return await this.prismaService.order.create({data});
   };
 
-  async list(filter: Prisma.OrderFindManyArgs): Promise<any> {
+  async list(filter?: Prisma.OrderFindManyArgs): Promise<any> {
     return await this.prismaService.order.findMany(filter);
   };
 }
