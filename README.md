@@ -43,14 +43,10 @@ This turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
-## Setup
-This starter kit is using turborepo and yarn workspaces for monorepo workflow.
-
 ### Prerequisites 
 
 - Make sure docker and docker-compose are
  installed. Refer to docs for your operating system.
-
 
  ## Docker 
 
