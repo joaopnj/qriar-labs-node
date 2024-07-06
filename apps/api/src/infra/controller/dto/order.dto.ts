@@ -9,13 +9,6 @@ export class CreateOrderDTO {
       example: "Big Mack",
     })
     title: string;
-
-    @IsString()
-    @ApiProperty({
-      description: "Status",
-      example: "REALIZED",
-    })
-    status: Status;
   
   }
 
