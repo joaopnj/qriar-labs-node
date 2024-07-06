@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { validationSchemaForEnv } from './config/environment-variables';
 import { PersistenceModule } from './persistence/persistence.module';
+import { AppController } from './controller/app.controller';
+import { AppUsecase } from './usecase/app.usecase';
+import { OrderController } from './controller/order.controller';
+import { OrderRepository } from './repository/order.repository';
+import { OrderUseCase } from './usecase/order.usecase';
+import { HistoryRepository } from './repository/history.repository';
 
 @Module({
   imports: [
@@ -13,7 +17,15 @@ import { PersistenceModule } from './persistence/persistence.module';
     }),
     PersistenceModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [
+    AppController,
+    OrderController
+  ],
+  providers: [
+    AppUsecase,
+    OrderUseCase,
+    OrderRepository,
+    HistoryRepository
+  ],
 })
 export class AppModule {}

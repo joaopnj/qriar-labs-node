@@ -10,8 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Order {
+  id      Int       @id @default(autoincrement())
+  title   String
+  locator String    @unique
+  history History[]
+}
+
+model History {
+  id        Int      @id @default(autoincrement())
+  status    Status
+  updatedAt DateTime @updatedAt
+  Order     Order?   @relation(fields: [orderId], references: [id])
+  orderId   Int?
+}
+
+enum Status {
+  REALIZED
+  WAITING_PAYMENT
+  PAYMENT_APROVED
+  DELIVERING
+  DELIVERED
 }
