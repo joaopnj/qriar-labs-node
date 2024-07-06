@@ -9,6 +9,8 @@ import { OrderRepository } from './infra/repository/order.repository';
 import { HistoryRepository } from './infra/repository/history.repository';
 import { CreateOrderUseCase } from './application/usecase/create.order.usecase';
 import { UpdateOrderStatusUseCase } from './application/usecase/update.order.usecase';
+import { SubmitPaymentListener } from './application/listeners/submit.payment.listener';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
@@ -17,6 +19,7 @@ import { UpdateOrderStatusUseCase } from './application/usecase/update.order.use
       validationSchema: validationSchemaForEnv,
     }),
     PersistenceModule,
+    EventEmitterModule.forRoot()
   ],
   controllers: [
     AppController,
@@ -27,7 +30,8 @@ import { UpdateOrderStatusUseCase } from './application/usecase/update.order.use
     OrderRepository,
     CreateOrderUseCase,
     UpdateOrderStatusUseCase,
-    HistoryRepository
+    HistoryRepository,
+    SubmitPaymentListener
   ],
 })
 export class AppModule {}

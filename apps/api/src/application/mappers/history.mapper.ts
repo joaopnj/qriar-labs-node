@@ -15,4 +15,6 @@ export class HistoryMapper {
             status: history.status,
         } as HistoryEntity;
     };
+
+    
 }

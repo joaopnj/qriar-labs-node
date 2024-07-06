@@ -1,11 +1,10 @@
-import { Order, Status } from "@prisma/client";
+import { Status } from "@prisma/client";
 
 export interface HistoryProps{
   id: number,
   orderId: number,
-  title: string,
   status: Status,
-  updatedAt: Date
+  updatedAt?: Date
 }
 
 export class HistoryEntity  {
@@ -23,9 +22,6 @@ export class HistoryEntity  {
     return this.props.orderId;
   }
 
-  get title(): string {
-    return this.props.title;
-  }
   get status(): Status {
     return this.props.status;
   }
