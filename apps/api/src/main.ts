@@ -9,8 +9,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Leaves Tracker')
-    .setDescription('Api Docs for leaves tracker')
+    .setTitle('Qriar Labs Node')
+    .setDescription('Api Docs for leaves Qriar Labs Node')
     .setVersion('1.0')
     .build();
 
