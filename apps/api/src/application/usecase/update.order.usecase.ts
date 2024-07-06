@@ -16,7 +16,6 @@ export class UpdateOrderStatusUseCase {
     const historyPrisma = HistoryMapper.toPrisma(history, id);
     const result = await this.historyRepository.save(historyPrisma);
     if(updateStatusOrderDTO.status === 'WAITING_PAYMENT') {
-      console.log("Ordem em pagamento")
       this.emmiter.emit("submit-payment", id);
     }
     return result;

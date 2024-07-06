@@ -11,10 +11,8 @@ export class SubmitPaymentListener {
 
   @OnEvent('submit-payment')
   async submitPayment(id: number) {
-    console.log("Iniciou o pagamento");
-    await this.delay(15 * 1000);
+    await this.delay(2 * 60 * 1000);
     const history = HistoryMapper.toPrisma({status: "PAYMENT_APROVED"} as HistoryEntity, id);
-    console.log("Finalizou o pagamento");
     await this.historyRepository.save(history);
   }
 
