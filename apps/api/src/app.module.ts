@@ -5,9 +5,10 @@ import { PersistenceModule } from './database/persistence/persistence.module';
 import { AppController } from './infra/controller/app.controller';
 import { AppUsecase } from './application/usecase/app.usecase';
 import { OrderController } from './infra/controller/order.controller';
-import { OrderUseCase } from './application/usecase/order.usecase';
 import { OrderRepository } from './infra/repository/order.repository';
 import { HistoryRepository } from './infra/repository/history.repository';
+import { CreateOrderUseCase } from './application/usecase/create.order.usecase';
+import { UpdateOrderStatusUseCase } from './application/usecase/update.order.usecase';
 
 @Module({
   imports: [
@@ -23,8 +24,9 @@ import { HistoryRepository } from './infra/repository/history.repository';
   ],
   providers: [
     AppUsecase,
-    OrderUseCase,
     OrderRepository,
+    CreateOrderUseCase,
+    UpdateOrderStatusUseCase,
     HistoryRepository
   ],
 })

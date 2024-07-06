@@ -18,3 +18,13 @@ export class CreateOrderDTO {
     status: Status;
   
   }
+
+  export class UpdateStatusOrderDTO {
+    @IsString()
+    @ApiProperty({
+      description: "Status",
+      example: "WAITING_PAYMENT",
+    })
+    status: Status;
+  
+  }
