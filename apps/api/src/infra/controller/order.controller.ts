@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
 import { CreateOrderDTO, UpdateStatusOrderDTO } from './dto/order.dto';
 import { CreateOrderUseCase } from 'src/application/usecase/create.order.usecase';
 import { UpdateOrderStatusUseCase } from 'src/application/usecase/update.order.usecase';

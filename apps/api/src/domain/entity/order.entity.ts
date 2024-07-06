@@ -1,5 +1,3 @@
-import { HistoryProps } from "./history.entity";
-
 export interface OrderProps{
   id: number,
   title: string,

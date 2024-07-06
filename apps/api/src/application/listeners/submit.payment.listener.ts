@@ -3,7 +3,6 @@ import { OnEvent } from '@nestjs/event-emitter';
 import { HistoryEntity } from 'src/domain/entity/history.entity';
 import { HistoryRepository } from 'src/infra/repository/history.repository';
 import { HistoryMapper } from '../mappers/history.mapper';
-import { resolve } from 'path';
 
 @Injectable()
 export class SubmitPaymentListener {
